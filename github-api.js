@@ -2,7 +2,7 @@ const express = require('express'); // Certifique-se de que o pacote Express est
 const axios = require('axios');    // Certifique-se de que o Axios está instalado
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Porta dinâmica para suportar ambientes como Render
 
 // Endpoint para buscar repositórios no GitHub
 app.get('/github/repos', async (req, res) => {
@@ -51,7 +51,7 @@ app.get('/github/repos', async (req, res) => {
 // Endpoint para chamar FastAPI
 app.get('/fastapi/data', async (req, res) => {
   try {
-    const FASTAPI_URL = 'http://localhost:8000/'; // URL da sua API FastAPI (supondo que ela esteja rodando na porta 8000)
+    const FASTAPI_URL = 'http://localhost:8000/'; // URL da sua API FastAPI (substituir para produção, se necessário)
 
     // Exemplo de requisição GET para a FastAPI
     const fastApiResponse = await axios.get(`${FASTAPI_URL}some-endpoint`);  // Substitua 'some-endpoint' pelo endpoint correto da sua FastAPI
