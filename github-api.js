@@ -4,12 +4,6 @@ const axios = require('axios');    // Certifique-se de que o Axios está instala
 const app = express();
 const port = 3000;
 
-// Teste básico para verificar se o servidor está funcionando
-app.get('/', (req, res) => {
-  console.log('Recebendo requisição para o endpoint /');
-  res.send('Servidor funcionando!');
-});
-
 // Endpoint para buscar repositórios no GitHub
 app.get('/github/repos', async (req, res) => {
   try {
