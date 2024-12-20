@@ -64,3 +64,6 @@ app.get('/fastapi/data', async (req, res) => {
   }
 });
 
+app.listen(port, () => {
+  console.log(`Servidor rodando na URL http://localhost:${port}/github/repos`);
+});
