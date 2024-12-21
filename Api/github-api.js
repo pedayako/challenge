@@ -1,20 +1,15 @@
-require('dotenv').config(); // Carregar variáveis de ambiente do arquivo .env
+require('dotenv').config(); // Carregar variáveis de ambiente
 const express = require('express');
-const routes = require('./routes'); // Importar o arquivo routes.js
+const routes = require('./routes'); // Importar as rotas
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware para JSON
+// Middleware para aceitar JSON
 app.use(express.json());
 
-// Mensagem de boas-vindas para a rota raiz "/"
-app.get('/', (req, res) => {
-    res.send('Bem-vindo à API! Use localhost:3000/github/repos para acessar os dados.');
-});
-
-// Usar as rotas definidas no arquivo routes.js
-app.use('/github', routes);
+// Rota raiz ("/") reutilizando a rota de "/github/repos"
+app.use('/', routes);
 
 // Inicializar o servidor
 app.listen(PORT, () => {
