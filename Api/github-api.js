@@ -1,4 +1,5 @@
 require('dotenv').config(); // Carregar variáveis de ambiente
+const axios = require('axios'); // Importação do axios
 const express = require('express');
 const routes = require('./routes'); // Importar o arquivo routes.js
 
